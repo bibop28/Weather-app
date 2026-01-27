@@ -16,3 +16,11 @@ searchBtn.addEventListener("click", async () => {
     updateWeatherUI(weatherData);
 
 });
+
+
+cityInput.addEventListener("keydown",(e) => {
+    if (e.key === "Enter") {
+        searchBtn.click();
+    }
+
+});

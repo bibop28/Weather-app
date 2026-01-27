@@ -21,3 +21,4 @@ humidityElem.textContent = `Humidity: ${data.main.humidity}%`;
 windElem.textContent = `Wind speed: ${data.wind.speed} m/s`;
 
 }
+

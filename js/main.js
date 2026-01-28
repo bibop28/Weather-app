@@ -17,6 +17,12 @@ searchBtn.addEventListener("click", async () => {
 
 });
 
+const container = document.querySelector('.app-container');
+const searchButton = document.querySelector('.search-bar button');
+
+    searchButton.addEventListener('click', () => {
+    container.classList.add('active');
+})
 
 cityInput.addEventListener("keydown",(e) => {
     if (e.key === "Enter") {

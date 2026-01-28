@@ -42,7 +42,26 @@ body::before {
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
+
+    position: relative;
+    overflow: hidden;
 }
+
+    .app-container::after{
+        content: "";
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 200px;
+        height: 200px;
+        background: url("https://cdn-icons-png.flaticon.com/512/1163/1163657.png") no-repeat center/contain;
+        opacity: 0.1;
+        transform: translate(-50%, -50%);
+        pointer-events: none;
+
+
+    }
+
 
 h1 {
     margin-bottom: 20px;

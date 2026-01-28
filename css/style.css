@@ -55,15 +55,23 @@ body::before {
         width: 200px;
         height: 200px;
         background: url("https://cdn-icons-png.flaticon.com/512/1163/1163657.png") no-repeat center/contain;
-        opacity: 0.1;
-        transform: translate(-50%, -50%);
-        pointer-events: none;
 
+        opacity: 0.3;
+        filter: drop-shadow(0 0 2px white);
+        transform: translate(-50%, -50%) scale(1);
+        transition: all 0.5s ease;
+        pointer-events: none;
 
     }
 
+    .app-container.active::after {
+        opacity: 0.1;
+        transform: translate(-50%, -50%) scale(0.8);
+        filter: none;
+    }
 
-h1 {
+
+h1{
     margin-bottom: 20px;
     font-size: 2rem;
 }

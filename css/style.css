@@ -31,13 +31,17 @@ body::before {
 .app-container {
     background: rgba(255, 255, 255, 0.15);
     backdrop-filter: blur(12px);
-    padding: 30px 40px;
-    border-radius: 20px;
-    width: 360px;
+    padding: 40px 20px;
+    border-radius: 30px;
+    width: 320px;
     text-align: center;
     color: white;
     box-shadow: 0 25px 40px rgba(0,0,0,0.5);
     text-shadow: 0 1px 3px rgba(0,0,0,0,0.6);
+    min-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
 }
 
 h1 {

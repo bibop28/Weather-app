@@ -5,13 +5,14 @@ const humidityElem = document.getElementById("humidity");
 const windElem = document.getElementById("wind");
 
 export function updateWeatherUI(data) {
+    const weatherResult = document.getElementById("weatherResult");
+
     if (!data || data.cod !== 200) {
         alert("City not found!")
         return;
     }
 
-    const weatherResult = document.getElementById("weatherResult");
-    weatherResult.style.display = "block";
+    weatherResult.classList.add("show");
 
 
 cityNameElem.textContent = data.name;

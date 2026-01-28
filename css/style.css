@@ -74,11 +74,23 @@ h1 {
 }
 
 #weatherResult {
-    margin-top: 20px;
     display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+
+}
+
+#weatherResult.show {
+    display: block;
+    opacity: 1;
 }
 
 #cityName {
     font-size: 1.6rem;
     margin-bottom: 10px;
+}
+
+#description img {
+    width: 50px;
+    vertical-align: middle;
 }

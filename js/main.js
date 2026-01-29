@@ -1,5 +1,6 @@
 const cityInput = document.getElementById("cityInput");
 const searchBtn = document.getElementById("searchBtn");
+const container = document.querySelector(".app-container");
 
 
 import { getWeather } from "./api.js";
@@ -15,18 +16,16 @@ searchBtn.addEventListener("click", async () => {
     const weatherData = await getWeather(city);
     updateWeatherUI(weatherData);
 
+    container.classList.add('active');
 });
 
-const container = document.querySelector('.app-container');
-const searchButton = document.querySelector('.search-bar button');
 
-    searchButton.addEventListener('click', () => {
-    container.classList.add('active');
-})
 
-cityInput.addEventListener("keydown",(e) => {
+
+
+
+cityInput.addEventListener("keydown", (e) => {
     if (e.key === "Enter") {
         searchBtn.click();
     }
-
 });

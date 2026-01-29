@@ -1,130 +1,162 @@
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-    font-family: "Segoe UI", sans-serif;
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", sans-serif;
 
-}
+    }
 
-body {
-    margin: 0;
-    min-height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-family: "Segoe UI", sans-serif;
-    overflow: hidden;
-}
+    body {
+        margin: 0;
+        min-height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-family: "Segoe UI", sans-serif;
+        overflow: hidden;
+    }
 
-body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background: url("https://i.redd.it/4vztk5m7p9651.jpg") no-repeat center/cover;
-    filter: blur(8px);
-    transform: scale(1.1);
-    z-index: -1;
-}
-
-
-
-.app-container {
-    background: rgba(255, 255, 255, 0.15);
-    backdrop-filter: blur(12px);
-    padding: 40px 20px;
-    border-radius: 30px;
-    width: 320px;
-    text-align: center;
-    color: white;
-    box-shadow: 0 25px 40px rgba(0,0,0,0.5);
-    text-shadow: 0 1px 3px rgba(0,0,0,0,0.6);
-    min-height: 500px;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-
-    position: relative;
-    overflow: hidden;
-}
-
-    .app-container::after{
+    body::before {
         content: "";
+        position: fixed;
+        inset: 0;
+        background: url("https://i.redd.it/4vztk5m7p9651.jpg") no-repeat center/cover;
+        filter: blur(8px);
+        transform: scale(1.1);
+        z-index: -1;
+    }
+
+
+
+    .app-container {
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(12px);
+        padding: 40px 20px;
+        border-radius: 30px;
+        width: 320px;
+        text-align: center;
+        color: white;
+        box-shadow: 0 25px 40px rgba(0,0,0,0.5);
+        text-shadow: 0 1px 3px rgba(0,0,0,0,0.6);
+        min-height: 500px;
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-start;
+
+        position: relative;
+        overflow: hidden;
+    }
+
+        .app-container::after{
+            content: "";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            width: 200px;
+            height: 200px;
+            background: url("https://cdn-icons-png.flaticon.com/512/1163/1163657.png") no-repeat center/contain;
+
+            opacity: 0.3;
+            filter: drop-shadow(0 0 2px white);
+            transform: translate(-50%, -50%) scale(1);
+            transition: all 0.5s ease;
+            pointer-events: none;
+
+        }
+
+        .app-container.active::after {
+            opacity: 0.1;
+            transform: translate(-50%, -50%) scale(0.8);
+            filter: none;
+        }
+
+
+    h1{
+        margin-bottom: 20px;
+        font-size: 2rem;
+    }
+
+    .search-bar {
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        background: rgba(255, 255, 255, 0.15);
+        backdrop-filter: blur(10px);
+
+        border-radius: 18px;
+
+
+
+        border: 1px solid rgba(255, 255, 255, 0.25);
+        padding: 0px;
+    }
+
+    .search-bar input {
+        width: 100%;
+        padding: 14px 48px 14px 16px;
+        border: none;
+        outline: none;
+        background: transparent;
+        color: white;
+        font-size: 1rem;
+        border-radius: 18px;
+
+
+    }
+
+    .search-bar input::placeholder {
+        background: linear-gradient(to-right, #aaa, #fff);
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: rgba(255, 255, 255, 0.6);    
+
+    }
+
+
+
+
+    .submit-btn {
         position: absolute;
+        right: 14px;
         top: 50%;
-        left: 50%;
-        width: 200px;
-        height: 200px;
-        background: url("https://cdn-icons-png.flaticon.com/512/1163/1163657.png") no-repeat center/contain;
+        transform:translateY(-50%);
 
-        opacity: 0.3;
-        filter: drop-shadow(0 0 2px white);
-        transform: translate(-50%, -50%) scale(1);
-        transition: all 0.5s ease;
+
+        background: none;
+        border: none;
+        cursor: pointer;
+        padding: 0;
+
+        z-index: 20;
+    }
+
+    .submit-btn img {
+        width: 22px;
+        height: 22px;
+        filter: invert(1);
         pointer-events: none;
+    }
+
+    #weatherResult {
+        display: none;
+        opacity: 0;
+        transition: opacity 0.3s ease-in-out;
 
     }
 
-    .app-container.active::after {
-        opacity: 0.1;
-        transform: translate(-50%, -50%) scale(0.8);
-        filter: none;
+    #weatherResult.show {
+        display: block;
+        opacity: 1;
     }
 
+    #cityName {
+        font-size: 1.6rem;
+        margin-bottom: 10px;
+    }
 
-h1{
-    margin-bottom: 20px;
-    font-size: 2rem;
-}
-
-.search-bar {
-    display: flex;
-    gap: 10px;
-}
-
-.search-bar input {
-    flex: 1;
-    padding: 12px;
-    border-radius: 12px;
-    border: none;
-    outline: none;
-    font-size: 1rem;
-}
-
-.search-bar button {
-    padding: 12px 16px;
-    border-radius: 12px;
-    border: none;
-    background: #2ecc71;
-    color: white;
-    cursor: pointer;
-    font-weight: bold;
-    transition: 0.2s;
-}
-
-.search-bar button:hover {
-    background: #27ae60;
-    transform: scale(1.05);
-    transition: 0.2s;
-}
-
-#weatherResult {
-    display: none;
-    opacity: 0;
-    transition: opacity 0.3s ease-in-out;
-
-}
-
-#weatherResult.show {
-    display: block;
-    opacity: 1;
-}
-
-#cityName {
-    font-size: 1.6rem;
-    margin-bottom: 10px;
-}
-
-#description img {
-    width: 60px;
-    vertical-align: middle;
-}
+    #description img {
+        width: 60px;
+        vertical-align: middle;
+    }

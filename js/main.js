@@ -16,7 +16,6 @@ searchBtn.addEventListener("click", async () => {
     const weatherData = await getWeather(city);
     updateWeatherUI(weatherData);
 
-    container.classList.add('active');
 });
 
 

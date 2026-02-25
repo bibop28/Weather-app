@@ -140,15 +140,18 @@
     }
 
     #weatherResult {
-        display: none;
         opacity: 0;
-        transition: opacity 0.3s ease-in-out;
-
+        visibility: hidden;
+        max-height: 0;
+        overflow: hidden;
+        transition: opacity 0.3s ease, max-height 0.4s ease;
+        margin-top: 18px;
     }
 
     #weatherResult.show {
-        display: block;
         opacity: 1;
+        visibility: visible;
+        max-height: 400px;
     }
 
     #cityName {

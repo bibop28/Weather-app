@@ -8,6 +8,9 @@ export async function getWeather(city) {
         const url = `${BASE_URL}?q=${encodeURIComponent(city)}&appid=${API_KEY}&units=metric`;
         const response = await fetch(url);
         const data = await response.json();
+
+        if (!response.ok) return {...data, cod: response.status };
+
         return data;
     } catch (error) {
         console.error("Error fetching weather:", error);

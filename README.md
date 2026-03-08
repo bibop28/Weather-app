@@ -29,7 +29,7 @@ The main goal of this project is to create a user-friendly weather app while pra
 git clone https://github.com/bibop28/Weather-app
 cd Weather-app
 ```
-Open `https://weather-app-by-arsen.netlify.app/` in your browser to start using the Weather App. 
+Open `https://weather-app-by-arsen.netlify.app` in your browser to start using the Weather App. 
 
 ---
 ## 🛠️ Tech Stack
